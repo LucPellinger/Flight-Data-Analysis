@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>flightclass package &mdash; Project Icaras - Group_09 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Test package" href="Test.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Project Icaras - Group_09
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">source</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Functions.html">Functions package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Test.html">Test package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">flightclass package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-flightclass.flight">flightclass.flight module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#flightclass.flight.FlightData"><code class="docutils literal notranslate"><span class="pre">FlightData</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-flightclass">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Project Icaras - Group_09</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">source</a></li>
+      <li class="breadcrumb-item active">flightclass package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/flightclass.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="flightclass-package">
+<h1>flightclass package<a class="headerlink" href="#flightclass-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-flightclass.flight">
+<span id="flightclass-flight-module"></span><h2>flightclass.flight module<a class="headerlink" href="#module-flightclass.flight" title="Link to this heading"></a></h2>
+<p>This module contains a class for processing flight data, including downloading and parsing
+flight-related data and plotting flight routes.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">flightclass.flight.</span></span><span class="sig-name descname"><span class="pre">FlightData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'https://gitlab.com/adpro1/adpro2024/-/raw/main/Files/flight_data.zip?inline=false'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file:</span> <span class="pre">str</span> <span class="pre">=</span> <span class="pre">'downloads/flight_data.zip'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">airlines_df:</span> <span class="pre">~pandas.core.frame.DataFrame</span> <span class="pre">=</span> <span class="pre">Empty</span> <span class="pre">DataFrame</span> <span class="pre">Columns:</span> <span class="pre">[]</span> <span class="pre">Index:</span> <span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">airplanes_df:</span> <span class="pre">~pandas.core.frame.DataFrame</span> <span class="pre">=</span> <span class="pre">Empty</span> <span class="pre">DataFrame</span> <span class="pre">Columns:</span> <span class="pre">[]</span> <span class="pre">Index:</span> <span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">airports_df:</span> <span class="pre">~pandas.core.frame.DataFrame</span> <span class="pre">=</span> <span class="pre">Empty</span> <span class="pre">DataFrame</span> <span class="pre">Columns:</span> <span class="pre">[]</span> <span class="pre">Index:</span> <span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">routes_df:</span> <span class="pre">~pandas.core.frame.DataFrame</span> <span class="pre">=</span> <span class="pre">Empty</span> <span class="pre">DataFrame</span> <span class="pre">Columns:</span> <span class="pre">[]</span> <span class="pre">Index:</span> <span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flightclass.flight.FlightData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>A class for processing flight data, including downloading
+and parsing flight-related data and plotting flight routes.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.url">
+<span class="sig-name descname"><span class="pre">url</span></span><a class="headerlink" href="#flightclass.flight.FlightData.url" title="Link to this definition"></a></dt>
+<dd><p>The URL to download the flight data from.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.file">
+<span class="sig-name descname"><span class="pre">file</span></span><a class="headerlink" href="#flightclass.flight.FlightData.file" title="Link to this definition"></a></dt>
+<dd><p>The name of the downloaded zip file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>str</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.airlines_df">
+<span class="sig-name descname"><span class="pre">airlines_df</span></span><a class="headerlink" href="#flightclass.flight.FlightData.airlines_df" title="Link to this definition"></a></dt>
+<dd><p>A DataFrame containing airline data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.airplanes_df">
+<span class="sig-name descname"><span class="pre">airplanes_df</span></span><a class="headerlink" href="#flightclass.flight.FlightData.airplanes_df" title="Link to this definition"></a></dt>
+<dd><p>A DataFrame containing airplane data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.airports_df">
+<span class="sig-name descname"><span class="pre">airports_df</span></span><a class="headerlink" href="#flightclass.flight.FlightData.airports_df" title="Link to this definition"></a></dt>
+<dd><p>A DataFrame containing airport data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.routes_df">
+<span class="sig-name descname"><span class="pre">routes_df</span></span><a class="headerlink" href="#flightclass.flight.FlightData.routes_df" title="Link to this definition"></a></dt>
+<dd><p>A DataFrame containing route data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.plot_airports">
+<span class="sig-name descname"><span class="pre">plot_airports</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">folium.Map:</span></span></span><a class="headerlink" href="#flightclass.flight.FlightData.plot_airports" title="Link to this definition"></a></dt>
+<dd><p>Plots the airports from a specified country on a map.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.distance_analysis">
+<span class="sig-name descname"><span class="pre">distance_analysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None:</span></span></span><a class="headerlink" href="#flightclass.flight.FlightData.distance_analysis" title="Link to this definition"></a></dt>
+<dd><p>Plots the distribution of flight distances.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.plot_airport_flights">
+<span class="sig-name descname"><span class="pre">plot_airport_flights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">airport_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">internal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">folium.Map:</span></span></span><a class="headerlink" href="#flightclass.flight.FlightData.plot_airport_flights" title="Link to this definition"></a></dt>
+<dd><p>Plots the flight routes from a specified airport on a map.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.plot_top_models">
+<span class="sig-name descname"><span class="pre">plot_top_models</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">countries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None:</span></span></span><a class="headerlink" href="#flightclass.flight.FlightData.plot_top_models" title="Link to this definition"></a></dt>
+<dd><p>Plots the N most used airplane models by number of routes.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.plot_country_flights">
+<span class="sig-name descname"><span class="pre">plot_country_flights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">internal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">folium.Map:</span></span></span><a class="headerlink" href="#flightclass.flight.FlightData.plot_country_flights" title="Link to this definition"></a></dt>
+<dd><p>Plots the flight routes from all airports in a specified country on a map.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.aircrafts">
+<span class="sig-name descname"><span class="pre">aircrafts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list:</span></span></span><a class="headerlink" href="#flightclass.flight.FlightData.aircrafts" title="Link to this definition"></a></dt>
+<dd><p>Print the list of unique airplane models in the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">aircraft_info(aircraft_name:</span> <span class="pre">str):</span></span></dt>
+<dd><p>Print the specifications of a specific airplane model.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">airports():</span></span></dt>
+<dd><p>Print the list of unique airports in the data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py">
+<span class="sig-name descname"><span class="pre">airport_info(airport_name:</span> <span class="pre">str):</span></span></dt>
+<dd><p>Print the specifications of a specific airport.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.Config">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Config</span></span><a class="headerlink" href="#flightclass.flight.FlightData.Config" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.Config.arbitrary_types_allowed">
+<span class="sig-name descname"><span class="pre">arbitrary_types_allowed</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">True</span></em><a class="headerlink" href="#flightclass.flight.FlightData.Config.arbitrary_types_allowed" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.aircraft_info">
+<span class="sig-name descname"><span class="pre">aircraft_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">aircraft_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flightclass.flight.FlightData.aircraft_info" title="Link to this definition"></a></dt>
+<dd><p>Print the specifications of a specific airplane model.
+Uses the airplanes_df attribute from the class and prints the specifications of the airplane model
+using the attribute Name from the dataframe.
+The method accesses ChatOpenAI to get the information about the airplane model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#flightclass.flight.FlightData" title="flightclass.flight.FlightData"><em>FlightData</em></a>) – </p></li>
+<li><p><strong>aircraft_name</strong> (<em>str = the name</em><em> of </em><em>the airplane model</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>aircraft_info</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A table of specifications about the airplane in Markdown.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>flight_data = FlightData()
+flight_data.aircraft_info(“Boeing 737-800”)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">aircrafts</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
+<dd><p>Print the list of unique airplane models in the data.
+Uses the airplanes_df attribute from the class and
+prints the unique airplane models using the attribute
+Name from the dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#flightclass.flight.FlightData" title="flightclass.flight.FlightData"><em>FlightData</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>unique_aircrafts</strong> – A list of unique airplane models.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>flight_data = FlightData()
+flight_data.aircrafts()</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id1">
+<span class="sig-name descname"><span class="pre">airlines_df</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#id1" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id2">
+<span class="sig-name descname"><span class="pre">airplanes_df</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#id2" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.airport_info">
+<span class="sig-name descname"><span class="pre">airport_info</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">airport_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#flightclass.flight.FlightData.airport_info" title="Link to this definition"></a></dt>
+<dd><p>Print the specifications of a specific airport.
+Uses the airports_df attribute from the class and prints the specifications of the airport
+using the attribute Name from the dataframe.
+The method accesses ChatOpenAI to get the information about the airport.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>self</strong> (<a class="reference internal" href="#flightclass.flight.FlightData" title="flightclass.flight.FlightData"><em>FlightData</em></a>) – </p></li>
+<li><p><strong>airport_name</strong> (<em>str = the name</em><em> of </em><em>the airport</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>airport_info</strong></p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A table of specifications about the airport in Markdown.</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>flight_data = FlightData()
+flight_data.airport_info(“Schiphol Airport”)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.airports">
+<span class="sig-name descname"><span class="pre">airports</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#flightclass.flight.FlightData.airports" title="Link to this definition"></a></dt>
+<dd><p>Print the list of unique airports in the data.
+Uses the airports_df attribute from the class and
+prints the unique airports using the attribute
+Name from the dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#flightclass.flight.FlightData" title="flightclass.flight.FlightData"><em>FlightData</em></a>) – </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>unique_airports</strong> – A list of unique airports.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>list</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>flight_data = FlightData()
+flight_data.airports()</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id3">
+<span class="sig-name descname"><span class="pre">airports_df</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#id3" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id4">
+<span class="sig-name descname"><span class="pre">distance_analysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id4" title="Link to this definition"></a></dt>
+<dd><p>Plots the distribution of flight distances.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>self</strong> (<a class="reference internal" href="#flightclass.flight.FlightData" title="flightclass.flight.FlightData"><em>FlightData</em></a>) – </p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id5">
+<span class="sig-name descname"><span class="pre">file</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#id5" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.model_computed_fields">
+<span class="sig-name descname"><span class="pre">model_computed_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ComputedFieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{}</span></em><a class="headerlink" href="#flightclass.flight.FlightData.model_computed_fields" title="Link to this definition"></a></dt>
+<dd><p>A dictionary of computed field names and their corresponding <cite>ComputedFieldInfo</cite> objects.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.model_config">
+<span class="sig-name descname"><span class="pre">model_config</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">ConfigDict</span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'arbitrary_types_allowed':</span> <span class="pre">True}</span></em><a class="headerlink" href="#flightclass.flight.FlightData.model_config" title="Link to this definition"></a></dt>
+<dd><p>Configuration for the model, should be a dictionary conforming to [<cite>ConfigDict</cite>][pydantic.config.ConfigDict].</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="flightclass.flight.FlightData.model_fields">
+<span class="sig-name descname"><span class="pre">model_fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">ClassVar</span><span class="p"><span class="pre">[</span></span><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">FieldInfo</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">{'airlines_df':</span> <span class="pre">FieldInfo(annotation=DataFrame,</span> <span class="pre">required=False,</span> <span class="pre">default=Empty</span> <span class="pre">DataFrame</span> <span class="pre">Columns:</span> <span class="pre">[]</span> <span class="pre">Index:</span> <span class="pre">[]),</span> <span class="pre">'airplanes_df':</span> <span class="pre">FieldInfo(annotation=DataFrame,</span> <span class="pre">required=False,</span> <span class="pre">default=Empty</span> <span class="pre">DataFrame</span> <span class="pre">Columns:</span> <span class="pre">[]</span> <span class="pre">Index:</span> <span class="pre">[]),</span> <span class="pre">'airports_df':</span> <span class="pre">FieldInfo(annotation=DataFrame,</span> <span class="pre">required=False,</span> <span class="pre">default=Empty</span> <span class="pre">DataFrame</span> <span class="pre">Columns:</span> <span class="pre">[]</span> <span class="pre">Index:</span> <span class="pre">[]),</span> <span class="pre">'file':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='downloads/flight_data.zip'),</span> <span class="pre">'routes_df':</span> <span class="pre">FieldInfo(annotation=DataFrame,</span> <span class="pre">required=False,</span> <span class="pre">default=Empty</span> <span class="pre">DataFrame</span> <span class="pre">Columns:</span> <span class="pre">[]</span> <span class="pre">Index:</span> <span class="pre">[]),</span> <span class="pre">'url':</span> <span class="pre">FieldInfo(annotation=str,</span> <span class="pre">required=False,</span> <span class="pre">default='https://gitlab.com/adpro1/adpro2024/-/raw/main/Files/flight_data.zip?inline=false')}</span></em><a class="headerlink" href="#flightclass.flight.FlightData.model_fields" title="Link to this definition"></a></dt>
+<dd><p>Metadata about the fields defined on the model,
+mapping of field names to [<cite>FieldInfo</cite>][pydantic.fields.FieldInfo].</p>
+<p>This replaces <cite>Model.__fields__</cite> from Pydantic V1.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id6">
+<span class="sig-name descname"><span class="pre">plot_airport_flights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">airport_code</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">internal</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Map</span></span></span><a class="headerlink" href="#id6" title="Link to this definition"></a></dt>
+<dd><p>Plots the flight routes from a specified airport on a map.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>airport_code</strong> (<em>str</em>) – The IATA code of the airport to plot flights from.</p></li>
+<li><p><strong>internal</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to only include flights within the same country.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A map object with plotted flight routes.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>folium.Map</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the specified airport does not exist in the provided data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id7">
+<span class="sig-name descname"><span class="pre">plot_airports</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Map</span></span></span><a class="headerlink" href="#id7" title="Link to this definition"></a></dt>
+<dd><p>Plots the airports from a specified country on a map using the Folium library.
+Utilizes the class’s DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>country</strong> (<em>str</em>) – The name of the country to plot airports for.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A map object with plotted airports.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>folium.Map</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the specified country does not exist in the provided data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id8">
+<span class="sig-name descname"><span class="pre">plot_country_flights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">country_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">internal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">train_plane_ratio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.12</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Map</span></span></span><a class="headerlink" href="#id8" title="Link to this definition"></a></dt>
+<dd><p>Plots the flight routes from all airports in a specified country on a map.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>country_name</strong> (<em>str</em>) – The name of the country to plot flights for.</p></li>
+<li><p><strong>threshold</strong> (<em>int</em><em>, </em><em>optional</em>) – The distance threshold in kilometers to distinguish short-haul from long-haul flights.</p></li>
+<li><p><strong>internal</strong> (<em>bool</em><em>, </em><em>optional</em>) – Whether to only include flights within the same country.</p></li>
+<li><p><strong>train_plane_ratio</strong> (<em>float</em><em>, </em><em>optional</em>) – The ratio of train to plane emissions for short-haul flights.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>A map object with plotted flight routes.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>folium.Map</p>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the specified country does not exist in the provided data.</p>
+</dd>
+</dl>
+<p class="rubric">Notes</p>
+<p>The train_plane_ratio is used to calculate the potential reduction in CO2 emissions
+if short-haul flights were replaced with train services. The default value of 3/25
+is based on the average CO2 emissions per passenger-kilometer for trains and planes.</p>
+<p>The map also includes a legend with the total distance and count of short-haul and
+long-haul flights, as well as the potential reduction in CO2 emissions.</p>
+<p>The map is colored blue for short-haul flights and red for long-haul flights.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="id9">
+<span class="sig-name descname"><span class="pre">plot_top_models</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">countries</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">top_n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">10</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#id9" title="Link to this definition"></a></dt>
+<dd><p>Plots the N most used airplane models by number of routes.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>countries</strong> (<em>list</em><em>, </em><em>optional</em>) – A list of country names to filter the routes by.</p></li>
+<li><p><strong>top_n</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of top airplane models to plot.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>None</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If the specified country does not exist in the provided data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id10">
+<span class="sig-name descname"><span class="pre">routes_df</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">DataFrame</span></em><a class="headerlink" href="#id10" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id11">
+<span class="sig-name descname"><span class="pre">url</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">str</span></em><a class="headerlink" href="#id11" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-flightclass">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-flightclass" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="Test.html" class="btn btn-neutral float-left" title="Test package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Adam Bernard, Hendrik Künnemann, Moritz Lind, Luc Marc Pellinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

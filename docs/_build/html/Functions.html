@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Functions package &mdash; Project Icaras - Group_09 0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=2709fde1"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Test package" href="Test.html" />
+    <link rel="prev" title="source" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Project Icaras - Group_09
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">source</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Functions package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Functions.distances">Functions.distances module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Functions.distances.distance"><code class="docutils literal notranslate"><span class="pre">distance()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Functions.download_zip">Functions.download_zip module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Functions.download_zip.download_file"><code class="docutils literal notranslate"><span class="pre">download_file()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Functions.reading_zip">Functions.reading_zip module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Functions.reading_zip.unzip"><code class="docutils literal notranslate"><span class="pre">unzip()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-Functions">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Test.html">Test package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flightclass.html">flightclass package</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Project Icaras - Group_09</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">source</a></li>
+      <li class="breadcrumb-item active">Functions package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/Functions.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="functions-package">
+<h1>Functions package<a class="headerlink" href="#functions-package" title="Link to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
+</section>
+<section id="module-Functions.distances">
+<span id="functions-distances-module"></span><h2>Functions.distances module<a class="headerlink" href="#module-Functions.distances" title="Link to this heading"></a></h2>
+<p>This module contains a function to calculate the distance between two points
+on the earth’s surface given their latitude and longitude in degrees.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="Functions.distances.distance">
+<span class="sig-prename descclassname"><span class="pre">Functions.distances.</span></span><span class="sig-name descname"><span class="pre">distance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lat1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lat2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lon2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#Functions.distances.distance" title="Link to this definition"></a></dt>
+<dd><p>Calculate the distance between two points on the earth’s surface
+given their latitude and longitude in degrees.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lat1</strong> (<em>float</em>) – Latitude of the first point in degrees.</p></li>
+<li><p><strong>lon1</strong> (<em>float</em>) – Longitude of the first point in degrees.</p></li>
+<li><p><strong>lat2</strong> (<em>float</em>) – Latitude of the second point in degrees.</p></li>
+<li><p><strong>lon2</strong> (<em>float</em>) – Longitude of the second point in degrees.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The distance between the two points in kilometers.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<p>distance(55.751244, 37.618423, 59.93863, 30.31413)
+634.0</p>
+</dd></dl>
+
+</section>
+<section id="module-Functions.download_zip">
+<span id="functions-download-zip-module"></span><h2>Functions.download_zip module<a class="headerlink" href="#module-Functions.download_zip" title="Link to this heading"></a></h2>
+<p>This module contains a function that downloads a file of your choice</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="Functions.download_zip.download_file">
+<span class="sig-prename descclassname"><span class="pre">Functions.download_zip.</span></span><span class="sig-name descname"><span class="pre">download_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">file_link</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">output_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'downloads/flight_data.zip'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#Functions.download_zip.download_file" title="Link to this definition"></a></dt>
+<dd><p>Downloads a file from an URL into your hard drive.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>file_link</strong> (<em>str</em>) – A string containing the link to the file you wish to download.</p></li>
+<li><p><strong>output_file</strong> (<em>str</em>) – A string containing the name of the output file. The default value is ‘file.csv’
+at the location you are running the function.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>Nothing</p>
+</dd>
+</dl>
+<p class="rubric">Example</p>
+<dl class="simple">
+<dt>download_file(”<a class="reference external" href="https://archive.ics.uci.edu/ml/machine-learning-databases/00320/student.zip">https://archive.ics.uci.edu/ml/machine-learning-databases/00320/student.zip</a>”,</dt><dd><p>output_file=’student.zip’)</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-Functions.reading_zip">
+<span id="functions-reading-zip-module"></span><h2>Functions.reading_zip module<a class="headerlink" href="#module-Functions.reading_zip" title="Link to this heading"></a></h2>
+<p>This module contains a function that unzips a zip-file of your choice</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="Functions.reading_zip.unzip">
+<span class="sig-prename descclassname"><span class="pre">Functions.reading_zip.</span></span><span class="sig-name descname"><span class="pre">unzip</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target_file</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#Functions.reading_zip.unzip" title="Link to this definition"></a></dt>
+<dd><p>Unzips a file from an URL into your hard drive.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>target_file</strong> (<em>str</em>) – A string containing the name of the file you wish to unzip.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p>All csv files in the zip file in the form of a dictionary.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-Functions">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-Functions" title="Link to this heading"></a></h2>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="modules.html" class="btn btn-neutral float-left" title="source" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="Test.html" class="btn btn-neutral float-right" title="Test package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Adam Bernard, Hendrik Künnemann, Moritz Lind, Luc Marc Pellinger.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
