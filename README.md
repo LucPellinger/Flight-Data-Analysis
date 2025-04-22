@@ -183,5 +183,4 @@ Key Permissions:
 - Final delivery must contain the showcase notebook, `.py` class file, and clear documentation.
 - 🛑 Do **not** use input prompts—only use method arguments!
 =======
-# Project Icaras - Group_09
 
