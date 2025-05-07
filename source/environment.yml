@@ -1,4 +1,4 @@
-name: adpro_group09
+name: flight_analysis
 channels:
   - conda-forge
   - defaults
@@ -157,3 +157,6 @@ dependencies:
       - regex==2023.12.25
       - tiktoken==0.6.0
       - tqdm==4.66.2
+      - streamlit
+      - openai
+      - plotly
