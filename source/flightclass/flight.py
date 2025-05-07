@@ -4,13 +4,14 @@ flight-related data and plotting flight routes.
 """
 
 import sys
-
+import os
 # Modify sys.path to include the parent directory for imports
 sys.path.append("..")
 
 # pylint: disable=wrong-import-position
 import folium
 import matplotlib.pyplot as plt
+import plotly.express as px
 import pandas as pd
 from branca.element import Element
 from IPython.display import Markdown, display
@@ -20,6 +21,8 @@ from Functions.distances import distance
 from Functions.download_zip import download_file
 from Functions.reading_zip import unzip
 from langchain_openai import ChatOpenAI
+from openai import RateLimitError, AuthenticationError
+
 
 # pylint: disable=R0903
 # pylint: disable=R0914
@@ -267,16 +270,22 @@ class FlightData(BaseModel):
         ---------
         None
         """
-        # Plot the distribution of flight distances
-        plt.figure(figsize=(10, 6))
-        plt.hist(
-            self.routes_df["distance_km"], bins=100, color="blue", edgecolor="black"
+        fig = px.histogram(
+            self.routes_df,
+            x="distance_km",
+            nbins=100,
+            title="Distribution of Flight Distances",
+            labels={"distance_km": "Distance (km)"},
         )
-        plt.title("Distribution of Flight Distances")
-        plt.xlabel("Distance (km)")
-        plt.ylabel("Number of Flights")
-        plt.grid(True)
-        plt.show()
+        fig.update_layout(
+            xaxis_title="Distance (km)",
+            yaxis_title="Number of Flights",
+            bargap=0.05,
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)',
+        )
+
+        return fig
 
     def plot_airport_flights(self, airport_code: str, internal=False) -> folium.Map:
         """
@@ -350,9 +359,9 @@ class FlightData(BaseModel):
 
         return flight_map
 
-    def plot_top_models(self, countries: list = None, top_n: int = 10) -> None:
+    def plot_top_models(self, countries: list = None, top_n: int = 10):
         """
-        Plots the N most used airplane models by number of routes.
+        Plots the N most used airplane models by number of routes using Plotly.
 
         Parameters
         ------------
@@ -363,78 +372,76 @@ class FlightData(BaseModel):
 
         Returns
         ---------
-        None
+        plotly.graph_objs._figure.Figure
 
         Raises
         ------------
         ValueError
             If the specified country does not exist in the provided data.
         """
-        # Use self.routes_df directly, ensuring 'routes' is always defined
         routes = self.routes_df.copy()
 
-        # Check if the countries exist in the airports_df
         if countries is not None:
             if isinstance(countries, str):
                 countries = [countries]
 
-            # Get unique countries from airports_df
             valid_countries = set(self.airports_df["Country"].unique())
             invalid_countries = [
                 country for country in countries if country not in valid_countries
             ]
 
             if invalid_countries:
-                invalid_countries_str = ", ".join(invalid_countries)
                 raise ValueError(
-                    f"The following countries do not exist in the data: {invalid_countries_str}"
+                    f"The following countries do not exist in the data: {', '.join(invalid_countries)}"
                 )
 
-            # Filter airports to those in the specified countries
             airports_in_countries = self.airports_df[
                 self.airports_df["Country"].isin(countries)
             ]
-            # Filter routes where either source or destination airport is in the specified countries
             routes = routes[
                 (routes["Source airport"].isin(airports_in_countries["IATA"]))
                 | (routes["Destination airport"].isin(airports_in_countries["IATA"]))
             ]
 
-        # Expand 'Equipment' field into separate rows for accurate counting
+        # Expand 'Equipment' field into separate rows
         expanded_equipment = (
             routes["Equipment"]
             .str.split(" ", expand=True)
             .stack()
             .reset_index(level=1, drop=True)
-        )
-        # Count the number of routes for each airplane model
-        route_counts = (
-            expanded_equipment.value_counts()
-            .rename_axis("IATA code")
-            .reset_index(name="Counts")
+            .rename("IATA code")
         )
 
-        # Merge with airplanes_df to get model names, sort by 'Counts', and select top n
-        model_counts = route_counts.merge(self.airplanes_df, on="IATA code")
+        route_counts = expanded_equipment.value_counts().reset_index()
+        route_counts.columns = ["IATA code", "Counts"]
+
+        # Merge to get airplane model names
+        model_counts = route_counts.merge(self.airplanes_df, on="IATA code", how="left")
         model_counts = (
-            model_counts.groupby("Name")
-            .sum()
+            model_counts.groupby("Name", as_index=False)
+            .agg({"Counts": "sum"})
             .sort_values(by="Counts", ascending=False)
             .head(top_n)
         )
 
-        # Plot
-        plt.figure(figsize=(10, 6))
-        plt.bar(model_counts.index, model_counts["Counts"])
-        plt.xlabel("Airplane Model")
-        plt.ylabel("Number of Routes")
-        plt.title(
-            f"Top {top_n} Most Used Airplane Models"
-            + (" Worldwide" if not countries else f' in {", ".join(countries)}')
+        title = f"Top {top_n} Most Used Airplane Models"
+        if countries:
+            title += f" in {', '.join(countries)}"
+
+        fig = px.bar(
+            model_counts,
+            x="Name",
+            y="Counts",
+            title=title,
+            labels={"Name": "Airplane Model", "Counts": "Number of Routes"},
         )
-        plt.xticks(rotation=45, ha="right")
-        plt.tight_layout()
-        plt.show()
+        fig.update_layout(xaxis_tickangle=-45,
+            paper_bgcolor='rgba(0,0,0,0)',
+            plot_bgcolor='rgba(0,0,0,0)',
+
+        )
+
+        return fig
 
     def plot_country_flights(
         self,
@@ -630,15 +637,14 @@ class FlightData(BaseModel):
                 f"Aircraft {aircraft_name} not found in the data."
                 f"Choose one of the following: {self.aircrafts()}"
             )
-        # Access ChatOpenAI to get the information about the airplane model
-        llm = ChatOpenAI(temperature=0.1)
-        aircraft_info = llm.invoke(f"Tell me about the airplane {aircraft_name}")
-        # Print the specifications of the airplane model in Markdown
-        display(
-            Markdown(
-                aircraft_info.content.replace(aircraft_name, ("**" + aircraft_name + "**"))
-            )
-        )
+        try:
+            llm = ChatOpenAI(api_key=os.getenv("OPENAI_API_KEY"), temperature=0.1)
+            aircraft_info = llm.invoke(f"Tell me about the airplane {aircraft_name}")
+            display(Markdown(aircraft_info.content.replace(aircraft_name, ("**" + aircraft_name + "**"))))
+        except RateLimitError:
+            display(Markdown("**❌ Rate limit exceeded. Please check your OpenAI account usage or try again later.**"))
+        except AuthenticationError:
+            display(Markdown("**❌ Invalid API key. Please re-enter it in the API Setup tab.**"))
 
     def airports(self):
         """
@@ -698,11 +704,12 @@ class FlightData(BaseModel):
                 f"Choose one of the following: {self.airports()}"
             )
         # Access ChatOpenAI to get the information about the airport
-        llm = ChatOpenAI(temperature=0.1)
-        airport_info = llm.invoke(f"Tell me about the airplane {airport_name}")
-        # Print the specifications of the airport in Markdown
-        display(
-            Markdown(
-                airport_info.content.replace(airport_name, ("**" + airport_name + "**"))
-            )
-        )
+        try:
+            llm = ChatOpenAI(api_key=os.getenv("OPENAI_API_KEY"), temperature=0.1)
+            airport_info = llm.invoke(f"Tell me about the airport {airport_name}")
+            # Print the specifications of the airport in Markdown
+            display(Markdown(airport_info.content.replace(airport_name, ("**" + airport_name + "**"))))
+        except RateLimitError:
+            display(Markdown("**❌ Rate limit exceeded. Please check your OpenAI account usage or try again later.**"))
+        except AuthenticationError:
+            display(Markdown("**❌ Invalid API key. Please re-enter it in the API Setup tab.**"))
