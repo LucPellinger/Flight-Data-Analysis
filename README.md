@@ -1,13 +1,23 @@
 
-# Project Icarus - Group_09
+# Project Icarus - Extension
+
+
 
 ## 📌 Description
 
-This is a group project for the **Advanced Programming Summer 2024** course at NOVA SBE.
+<center>
+<img src="source/assets/Flight_Data_Analysis_Dashboard.gif" alt="Flight Data Explorer Demo" width="700" align="center"/>
+</center>
+
+
+Project Icarus was originally delivered as a group project for the **Advanced Programming Summer 2024** course at NOVA SBE. However, since Jupyter Notebooks typically are less fun to interact with, I decided to extend the project making the class Streamlit ready and to build a cool Streamlit App based on the FlightData class from the project.
 
 Project Icarus is a Python-based tool for **comprehensive analysis of commercial air travel data**, with a focus on **sustainability**. Built using the IATA dataset, it provides insights into flight patterns, airplane usage, and potential **decarbonization strategies**.
 
+The base implementation of the flight class was extended and wrapped into a streamlit App to showcase more effectively its advanced features. Look at the demo [video](source/assets/Flight_Data_Analysis_Dashboard.webm) in your local browser or inspect the source code in **showcase_app.py** to get a better understanding of how it can be used.
+
 > 📝 Scroll to the bottom for the detailed project outline and grading criteria.
+
 
 ---
 
@@ -60,6 +70,13 @@ Follow these steps to set up the environment and run the showcase notebook:
      - [Windows](https://support.microsoft.com/pt-pt/topic/how-to-manage-environment-variables-in-windows-xp-5bf6725b-655e-151c-0b55-9a8c9c7f747d)
      - [MacOS](https://phoenixnap.com/kb/set-environment-variable-mac)
 
+6. **Start the Streamlit App in your local browser**
+
+   ```bash
+   streamlit run showcase_app.py
+   ```
+
+   You should see the following GUI in your browser under http://localhost:8501
 ---
 
 ## 🧪 Unit Tests
@@ -182,5 +199,5 @@ Key Permissions:
 - All tasks are worth **1 point** (except Phase 1: worth 1 point in total).
 - Final delivery must contain the showcase notebook, `.py` class file, and clear documentation.
 - 🛑 Do **not** use input prompts—only use method arguments!
-=======
+
 
