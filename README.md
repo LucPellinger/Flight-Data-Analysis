@@ -10,7 +10,7 @@
 </center>
 
 
-Project Icarus was originally delivered as a group project for the **Advanced Programming Summer 2024** course at NOVA SBE. However, since Jupyter Notebooks typically are less fun to interact with, I decided to extend the project making the class Streamlit ready and to build a cool Streamlit App based on the FlightData class from the project.
+Project Icarus was originally delivered as a group project for the **Advanced Programming Summer 2024** course at NOVA SBE. However, since Jupyter Notebooks typically are less fun to interact with, I decided to extend the project making the class Streamlit ready and to build a cool Streamlit App based on the FlightData class of the project.
 
 Project Icarus is a Python-based tool for **comprehensive analysis of commercial air travel data**, with a focus on **sustainability**. Built using the IATA dataset, it provides insights into flight patterns, airplane usage, and potential **decarbonization strategies**.
 
