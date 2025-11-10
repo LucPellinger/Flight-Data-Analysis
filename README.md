@@ -4,9 +4,11 @@
 
 
 ## 📌 Description
-
+```
+<GIF will appear here>
+```
 <center>
-<img src="source/assets/Flight_Data_Analysis_Dashboard.gif" alt="Flight Data Explorer Demo" width="700" align="center"/>
+<img src="source/assets/Flight_Data_Analysis_Dashboard.gif" alt="Flight Data Explorer Demo" width="1200" align="center"/>
 </center>
 
 
